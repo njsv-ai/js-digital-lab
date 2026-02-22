@@ -4,186 +4,149 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>JS Digital Lab</title>
-  <meta name="description" content="JS Digital Lab – Independent Software Development Studio. Wir entwickeln und veröffentlichen Apps für Sportsimulationen und digitale Experiences." />
+  <meta name="description" content="JS Digital Lab – Independent Software Development Studio. Mobile Apps für Sportsimulationen und digitale Experiences." />
   <style>
     :root{
-      --bg: #0b1220;
-      --bg2:#0f1a33;
-      --card: rgba(255,255,255,.06);
-      --card2: rgba(255,255,255,.08);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.70);
-      --muted2: rgba(255,255,255,.55);
-      --brand: #7c3aed; /* purple */
-      --brand2:#22c55e; /* green */
-      --ring: rgba(124,58,237,.35);
-      --border: rgba(255,255,255,.10);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 18px;
-      --max: 980px;
+      --bg:#ffffff;
+      --text:#111827;        /* near-black */
+      --muted:#4b5563;       /* gray-600 */
+      --muted2:#6b7280;      /* gray-500 */
+      --line:#e5e7eb;        /* gray-200 */
+      --soft:#f9fafb;        /* gray-50 */
+      --accent:#111827;      /* keep it minimal */
+      --radius:18px;
+      --max:980px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:var(--bg);
       color:var(--text);
-      background:
-        radial-gradient(1000px 600px at 15% 10%, rgba(124,58,237,.35), transparent 60%),
-        radial-gradient(900px 600px at 85% 20%, rgba(34,197,94,.22), transparent 55%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
-      line-height:1.55;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height:1.6;
     }
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:48px 20px 32px}
+    .wrap{max-width:var(--max); margin:0 auto; padding:56px 20px 40px}
     header{
-      display:flex; align-items:center; justify-content:space-between; gap:16px;
-      padding:10px 0 24px;
+      display:flex; justify-content:space-between; align-items:center; gap:16px;
+      padding-bottom:26px;
+      border-bottom:1px solid var(--line);
     }
-    .logo{
-      display:flex; align-items:center; gap:12px;
+    .brand{
+      display:flex; flex-direction:column; gap:4px;
       text-decoration:none;
     }
-    .mark{
-      width:44px; height:44px; border-radius:14px;
-      background: linear-gradient(135deg, rgba(124,58,237,.95), rgba(34,197,94,.85));
-      box-shadow: 0 10px 25px rgba(0,0,0,.35);
-      position:relative;
-    }
-    .mark:after{
-      content:"";
-      position:absolute; inset:10px;
-      border-radius:10px;
-      background: rgba(11,18,32,.35);
-      border:1px solid rgba(255,255,255,.18);
-      backdrop-filter: blur(6px);
-    }
-    .brand h1{margin:0; font-size:18px; letter-spacing:.2px}
-    .brand p{margin:0; font-size:13px; color:var(--muted2)}
-    nav{display:flex; gap:10px; flex-wrap:wrap}
-    .pill{
+    .brand strong{font-size:18px; letter-spacing:-.2px}
+    .brand span{font-size:13px; color:var(--muted2)}
+    nav{display:flex; gap:14px; flex-wrap:wrap}
+    nav a{
       text-decoration:none;
-      padding:10px 12px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.03);
-      border-radius:999px;
       font-size:13px;
       color:var(--muted);
-    }
-    .pill:hover{background: rgba(255,255,255,.06)}
-    .hero{
-      margin-top:8px;
-      padding:34px 28px;
-      border-radius: var(--radius);
-      border:1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    .hero:before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(400px 200px at 30% 10%, rgba(124,58,237,.20), transparent 60%),
-                  radial-gradient(420px 220px at 80% 30%, rgba(34,197,94,.14), transparent 60%);
-      pointer-events:none;
-    }
-    .hero-inner{position:relative}
-    .kicker{
-      display:inline-flex; gap:8px; align-items:center;
-      padding:8px 12px;
+      padding:8px 10px;
       border-radius:999px;
-      background: rgba(124,58,237,.12);
-      border:1px solid rgba(124,58,237,.25);
-      color: rgba(255,255,255,.85);
+    }
+    nav a:hover{background:var(--soft); color:var(--text)}
+
+    .hero{padding:44px 0 22px}
+    .kicker{
       font-size:13px;
+      color:var(--muted2);
+      letter-spacing:.2px;
+      text-transform:uppercase;
     }
-    .hero h2{
-      margin:14px 0 10px;
-      font-size:40px;
+    h1{
+      margin:10px 0 12px;
+      font-size:44px;
       line-height:1.12;
-      letter-spacing:-.6px;
+      letter-spacing:-1px;
     }
-    .hero p{
+    .lead{
       margin:0;
-      color: var(--muted);
-      font-size:16px;
-      max-width: 70ch;
+      font-size:17px;
+      color:var(--muted);
+      max-width:72ch;
     }
-    .actions{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap}
+    .actions{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
-      padding:12px 14px;
+      padding:11px 14px;
       border-radius:12px;
-      border:1px solid var(--border);
+      border:1px solid var(--line);
       text-decoration:none;
       font-weight:600;
       font-size:14px;
-      transition:.15s ease;
+      background:#fff;
     }
     .btn.primary{
-      border-color: rgba(124,58,237,.40);
-      background: rgba(124,58,237,.20);
-      box-shadow: 0 0 0 0 rgba(124,58,237,.0);
+      background:var(--text);
+      border-color:var(--text);
+      color:#fff;
     }
-    .btn.primary:hover{
-      box-shadow: 0 0 0 6px var(--ring);
-      transform: translateY(-1px);
-    }
-    .btn.ghost{
-      background: rgba(255,255,255,.03);
-      color: var(--muted);
-    }
-    .btn.ghost:hover{background: rgba(255,255,255,.06); transform: translateY(-1px)}
+    .btn.primary:hover{opacity:.92}
+    .btn.secondary:hover{background:var(--soft)}
+
     .grid{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
       gap:16px;
-      margin-top:18px;
+      padding:18px 0 8px;
     }
     .card{
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--card);
-      box-shadow: 0 12px 30px rgba(0,0,0,.22);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:#fff;
       padding:18px;
     }
-    .card h3{margin:0 0 10px; font-size:16px}
-    .card p{margin:0; color:var(--muted); font-size:14px}
-    .list{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px}
-    .li{
-      padding:12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
+    .card h2{
+      margin:0 0 10px;
+      font-size:16px;
+      letter-spacing:-.2px;
     }
-    .li strong{display:block; font-size:14px}
-    .li span{display:block; color:var(--muted2); font-size:13px; margin-top:2px}
-    .tagrow{margin-top:10px; display:flex; gap:8px; flex-wrap:wrap}
+    .item{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px;
+      background:var(--soft);
+    }
+    .item strong{display:block; font-size:14px}
+    .item span{display:block; font-size:13px; color:var(--muted2); margin-top:2px}
+    .tags{margin-top:10px; display:flex; gap:8px; flex-wrap:wrap}
     .tag{
       font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      background:#fff;
       padding:6px 10px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      color:var(--muted2);
-      background: rgba(255,255,255,.03);
     }
+    .note{
+      margin-top:12px;
+      font-size:12px;
+      color:var(--muted2);
+    }
+
     footer{
       margin-top:26px;
-      padding:18px 0 8px;
-      color: var(--muted2);
-      font-size:13px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
       display:flex;
       justify-content:space-between;
       gap:12px;
       flex-wrap:wrap;
-      border-top: 1px solid rgba(255,255,255,.10);
+      font-size:13px;
+      color:var(--muted2);
     }
     footer a{color:var(--muted); text-decoration:none}
     footer a:hover{text-decoration:underline}
+
     @media (max-width: 860px){
       .grid{grid-template-columns:1fr}
-      .hero h2{font-size:34px}
+      h1{font-size:36px}
+      .wrap{padding-top:44px}
     }
   </style>
 </head>
@@ -191,74 +154,66 @@
 <body>
   <div class="wrap">
     <header>
-      <a class="logo" href="/">
-        <div class="mark" aria-hidden="true"></div>
-        <div class="brand">
-          <h1>JS Digital Lab</h1>
-          <p>Independent Software Development Studio</p>
-        </div>
+      <a class="brand" href="/">
+        <strong>JS Digital Lab</strong>
+        <span>Independent Software Development Studio</span>
       </a>
-
       <nav>
-        <a class="pill" href="#apps">Apps</a>
-        <a class="pill" href="#contact">Kontakt</a>
-        <a class="pill" href="#legal">Rechtliches</a>
+        <a href="#apps">Apps</a>
+        <a href="#contact">Kontakt</a>
+        <a href="#legal">Rechtliches</a>
       </nav>
     </header>
 
     <section class="hero">
-      <div class="hero-inner">
-        <div class="kicker">📱 Mobile Apps • ⚽ Sportsimulationen • 🇩🇪 Made in Germany</div>
-        <h2>Wir bauen fokussierte, schnelle Apps mit sauberem Design.</h2>
-        <p>
-          JS Digital Lab entwickelt und veröffentlicht mobile Anwendungen mit Schwerpunkt auf Sportsimulationen und digitalen Experiences.
-          Klare UX, stabile Technik, schnelle Releases.
-        </p>
+      <div class="kicker">Mobile Apps • Sportsimulationen • Germany</div>
+      <h1>Fokussierte Apps. Saubere Umsetzung.</h1>
+      <p class="lead">
+        JS Digital Lab entwickelt und veröffentlicht mobile Anwendungen mit Schwerpunkt auf Sportsimulationen
+        und digitale Experiences — mit klarer UX, stabiler Technik und schnellen Releases.
+      </p>
 
-        <div class="actions">
-          <a class="btn primary" href="#apps">Unsere Apps ansehen</a>
-          <a class="btn ghost" href="mailto:admin@myskor.app">Kontakt aufnehmen</a>
-        </div>
+      <div class="actions">
+        <a class="btn primary" href="#apps">Unsere Apps</a>
+        <a class="btn secondary" href="mailto:admin@myskor.app">Kontakt</a>
       </div>
     </section>
 
     <section class="grid" id="apps">
       <div class="card">
-        <h3>Our Apps</h3>
-        <ul class="list">
-          <li class="li">
-            <strong>MySkor</strong>
-            <span>Football Tournament Simulator</span>
-            <div class="tagrow">
-              <span class="tag">Turnier-Simulation</span>
-              <span class="tag">Tippen & Challenge</span>
-              <span class="tag">iOS & Android</span>
-            </div>
-          </li>
-        </ul>
-        <p style="margin-top:12px;">
-          Hinweis: Alle Turniere und Inhalte in unseren Apps können fiktiv sein und stehen in keiner Verbindung zu realen Organisationen oder Veranstaltungen.
-        </p>
+        <h2>Apps</h2>
+
+        <div class="item">
+          <strong>MySkor</strong>
+          <span>Football Tournament Simulator</span>
+          <div class="tags">
+            <span class="tag">Turnier-Simulation</span>
+            <span class="tag">Tippen & Challenge</span>
+            <span class="tag">iOS & Android</span>
+          </div>
+        </div>
+
+        <div class="note">
+          Hinweis: Inhalte können fiktiv sein und stehen in keiner Verbindung zu realen Organisationen oder Veranstaltungen.
+        </div>
       </div>
 
       <div class="card" id="contact">
-        <h3>Kontakt</h3>
-        <p>Fragen, Feedback oder Support:</p>
-        <p style="margin-top:10px;">
-          <a class="btn ghost" href="mailto:admin@myskor.app">admin@myskor.app</a>
-        </p>
-        <p style="margin-top:12px; color:var(--muted2); font-size:12px;">
-          Üblicherweise Antwort innerhalb von 24–48 Stunden.
-        </p>
+        <h2>Kontakt</h2>
+        <div class="item" style="background:#fff">
+          <strong>E-Mail</strong>
+          <span><a href="mailto:admin@myskor.app">admin@myskor.app</a></span>
+        </div>
+        <div class="note">Antwort in der Regel innerhalb von 24–48 Stunden.</div>
       </div>
     </section>
 
     <footer id="legal">
       <div>© <span id="y"></span> JS Digital Lab</div>
       <div>
-        <a href="https://jsdigitallab.de/impressum" target="_blank" rel="noopener">Impressum</a>
+        <a href="/impressum">Impressum</a>
         &nbsp;•&nbsp;
-        <a href="https://jsdigitallab.de/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
+        <a href="/datenschutz">Datenschutz</a>
       </div>
     </footer>
   </div>
