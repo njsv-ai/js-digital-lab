@@ -8,12 +8,11 @@
   <style>
     :root{
       --bg:#ffffff;
-      --text:#111827;        /* near-black */
-      --muted:#4b5563;       /* gray-600 */
-      --muted2:#6b7280;      /* gray-500 */
-      --line:#e5e7eb;        /* gray-200 */
-      --soft:#f9fafb;        /* gray-50 */
-      --accent:#111827;      /* keep it minimal */
+      --text:#111827;
+      --muted:#4b5563;
+      --muted2:#6b7280;
+      --line:#e5e7eb;
+      --soft:#f9fafb;
       --radius:18px;
       --max:980px;
     }
@@ -30,26 +29,39 @@
     }
     a{color:inherit}
     .wrap{max-width:var(--max); margin:0 auto; padding:56px 20px 40px}
+
     header{
-      display:flex; justify-content:space-between; align-items:center; gap:16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:16px;
       padding-bottom:26px;
       border-bottom:1px solid var(--line);
     }
     .brand{
-      display:flex; flex-direction:column; gap:4px;
+      display:flex;
+      flex-direction:column;
+      gap:4px;
       text-decoration:none;
     }
     .brand strong{font-size:18px; letter-spacing:-.2px}
     .brand span{font-size:13px; color:var(--muted2)}
-    nav{display:flex; gap:14px; flex-wrap:wrap}
-    nav a{
-      text-decoration:none;
+
+    /* Navigation is intentionally NOT clickable to keep only legal links clickable */
+    nav{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      opacity:.8;
+      user-select:none;
+      pointer-events:none; /* disables all clicks */
+    }
+    nav .navitem{
       font-size:13px;
       color:var(--muted);
       padding:8px 10px;
       border-radius:999px;
     }
-    nav a:hover{background:var(--soft); color:var(--text)}
 
     .hero{padding:44px 0 22px}
     .kicker{
@@ -70,24 +82,6 @@
       color:var(--muted);
       max-width:72ch;
     }
-    .actions{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:11px 14px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      text-decoration:none;
-      font-weight:600;
-      font-size:14px;
-      background:#fff;
-    }
-    .btn.primary{
-      background:var(--text);
-      border-color:var(--text);
-      color:#fff;
-    }
-    .btn.primary:hover{opacity:.92}
-    .btn.secondary:hover{background:var(--soft)}
 
     .grid{
       display:grid;
@@ -158,10 +152,11 @@
         <strong>JS Digital Lab</strong>
         <span>Independent Software Development Studio</span>
       </a>
-      <nav>
-        <a href="#apps">Apps</a>
-        <a href="#contact">Kontakt</a>
-        <a href="#legal">Rechtliches</a>
+
+      <nav aria-hidden="true">
+        <span class="navitem">Apps</span>
+        <span class="navitem">Kontakt</span>
+        <span class="navitem">Rechtliches</span>
       </nav>
     </header>
 
@@ -172,14 +167,9 @@
         JS Digital Lab entwickelt und veröffentlicht mobile Anwendungen mit Schwerpunkt auf Sportsimulationen
         und digitale Experiences — mit klarer UX, stabiler Technik und schnellen Releases.
       </p>
-
-      <div class="actions">
-        <a class="btn primary" href="#apps">Unsere Apps</a>
-        <a class="btn secondary" href="mailto:admin@myskor.app">Kontakt</a>
-      </div>
     </section>
 
-    <section class="grid" id="apps">
+    <section class="grid">
       <div class="card">
         <h2>Apps</h2>
 
@@ -198,22 +188,22 @@
         </div>
       </div>
 
-      <div class="card" id="contact">
+      <div class="card">
         <h2>Kontakt</h2>
         <div class="item" style="background:#fff">
           <strong>E-Mail</strong>
-          <span><a href="mailto:admin@myskor.app">admin@myskor.app</a></span>
+          <span>admin@myskor.app</span>
         </div>
         <div class="note">Antwort in der Regel innerhalb von 24–48 Stunden.</div>
       </div>
     </section>
 
-    <footer id="legal">
+    <footer>
       <div>© <span id="y"></span> JS Digital Lab</div>
       <div>
-        <a href="/impressum">Impressum</a>
+        <a href="/impressum/">Impressum</a>
         &nbsp;•&nbsp;
-        <a href="/datenschutz">Datenschutz</a>
+        <a href="/datenschutz/">Datenschutz</a>
       </div>
     </footer>
   </div>
