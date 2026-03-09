@@ -47,14 +47,13 @@
     .brand strong{font-size:18px; letter-spacing:-.2px}
     .brand span{font-size:13px; color:var(--muted2)}
 
-    /* Navigation is intentionally NOT clickable to keep only legal links clickable */
     nav{
       display:flex;
       gap:14px;
       flex-wrap:wrap;
       opacity:.8;
       user-select:none;
-      pointer-events:none; /* disables all clicks */
+      pointer-events:none;
     }
     nav .navitem{
       font-size:13px;
@@ -83,6 +82,22 @@
       max-width:72ch;
     }
 
+    .section{
+      padding:22px 0;
+      border-top:1px solid var(--line);
+    }
+    .section h2{
+      margin:0 0 10px;
+      font-size:22px;
+      letter-spacing:-.3px;
+    }
+    .section p{
+      margin:0 0 12px;
+      color:var(--muted);
+      font-size:15px;
+      max-width:760px;
+    }
+
     .grid{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
@@ -95,7 +110,7 @@
       background:#fff;
       padding:18px;
     }
-    .card h2{
+    .card h3{
       margin:0 0 10px;
       font-size:16px;
       letter-spacing:-.2px;
@@ -154,9 +169,9 @@
       </a>
 
       <nav aria-hidden="true">
+        <span class="navitem">About</span>
         <span class="navitem">Apps</span>
-        <span class="navitem">Kontakt</span>
-        <span class="navitem">Rechtliches</span>
+        <span class="navitem">Contact</span>
       </nav>
     </header>
 
@@ -169,9 +184,21 @@
       </p>
     </section>
 
+    <section class="section">
+      <h2>Über JS Digital Lab</h2>
+      <p>
+        JS Digital Lab ist ein unabhängiges Softwareprojekt mit Fokus auf mobile Anwendungen
+        und digitale Produkte im Bereich Sport und Simulation.
+      </p>
+      <p>
+        Ziel ist es, intuitive und verlässliche Apps zu entwickeln, die Nutzern eine einfache,
+        moderne und unterhaltsame digitale Erfahrung bieten.
+      </p>
+    </section>
+
     <section class="grid">
       <div class="card">
-        <h2>Apps</h2>
+        <h3>Unsere Apps</h3>
 
         <div class="item">
           <strong>MySkor</strong>
@@ -184,18 +211,31 @@
         </div>
 
         <div class="note">
-          Hinweis: Inhalte können fiktiv sein und stehen in keiner Verbindung zu realen Organisationen oder Veranstaltungen.
+          MySkor ist eine unabhängige App zur Simulation von Fußballturnieren und digitalen Spielszenarien.
         </div>
       </div>
 
       <div class="card">
-        <h2>Kontakt</h2>
+        <h3>Kontakt</h3>
         <div class="item" style="background:#fff">
           <strong>E-Mail</strong>
           <span>admin@myskor.app</span>
         </div>
         <div class="note">Antwort in der Regel innerhalb von 24–48 Stunden.</div>
       </div>
+    </section>
+
+    <section class="section">
+      <h2>Was wir machen</h2>
+      <p>
+        Wir entwickeln Apps mit einem klaren Fokus auf Nutzerfreundlichkeit, Performance und
+        verständliche digitale Produkte. Der Schwerpunkt liegt aktuell auf mobilen Anwendungen
+        im Bereich Sportsimulationen.
+      </p>
+      <p>
+        Neben der Veröffentlichung eigener Apps arbeitet JS Digital Lab kontinuierlich an der
+        Weiterentwicklung bestehender Produkte und neuer digitaler Konzepte.
+      </p>
     </section>
 
     <footer>
